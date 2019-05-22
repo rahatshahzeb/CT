@@ -16,13 +16,13 @@ import dagger.android.support.HasSupportFragmentInjector
  * Helper class to automatically inject fragments if they implement [Injectable].
  */
 object AppInjector {
-    fun init(hgApplication: TaskApplication) {
+    fun init(taskApplication: TaskApplication) {
 
         DaggerAppComponent.builder()
-            .application(hgApplication)
-            .appModule(AppModule(hgApplication))
-            .build().inject(hgApplication)
-        hgApplication.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+            .application(taskApplication)
+            .appModule(AppModule(taskApplication))
+            .build().inject(taskApplication)
+        taskApplication.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
                 override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                     handleActivity(activity)
                 }

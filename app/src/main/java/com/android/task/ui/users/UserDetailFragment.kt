@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.android.task.R
 import com.android.task.di.Injectable
 import com.android.task.model.User
-import com.android.task.ui.users.dummy.DummyContent
 import kotlinx.android.synthetic.main.activity_user_detail.*
 import kotlinx.android.synthetic.main.user_detail.view.*
 
@@ -55,7 +54,7 @@ class UserDetailFragment : Fragment(), Injectable {
 
     companion object {
         /**
-         * The fragment argument representing the item ID that this fragment
+         * The fragment argument representing the item that this fragment
          * represents.
          */
         const val ARG_ITEM = "item"

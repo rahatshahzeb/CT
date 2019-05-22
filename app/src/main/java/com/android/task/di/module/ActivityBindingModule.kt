@@ -13,7 +13,7 @@ abstract class ActivityBindingModule {
     @ContributesAndroidInjector
     abstract fun contributeLoginActivity(): LoginActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [UserDetailActivityFragmentModule::class])
     abstract fun contributeUserListActivity(): UserListActivity
 
     @ContributesAndroidInjector(modules = [UserDetailActivityFragmentModule::class])

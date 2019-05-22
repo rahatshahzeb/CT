@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -16,8 +17,9 @@ import com.android.task.R
 import com.android.task.databinding.ActivityUserListBinding
 import com.android.task.model.User
 
-import com.android.task.ui.users.dummy.DummyContent
 import dagger.android.AndroidInjection
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_user_list.*
 import kotlinx.android.synthetic.main.user_list_content.view.*
 import kotlinx.android.synthetic.main.user_list.*
@@ -31,7 +33,7 @@ import javax.inject.Inject
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-class UserListActivity : AppCompatActivity() {
+class UserListActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     private lateinit var binding: ActivityUserListBinding
 
@@ -47,6 +49,11 @@ class UserListActivity : AppCompatActivity() {
      * device.
      */
     private var twoPane: Boolean = false
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    override fun supportFragmentInjector() = dispatchingAndroidInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
