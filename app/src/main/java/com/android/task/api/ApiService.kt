@@ -1,15 +1,14 @@
 package com.android.task.api
 
+import com.android.task.model.User
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
-
+import retrofit2.http.GET
 
 /**
  * REST API access points
  */
 interface ApiService {
 
-//    @POST("/manager/auth/request-otp")
-//    fun requestOtp(@Body requestOtpRequest: RequestOtpRequest): Call<ApiResponse>
+    @GET("/users")
+    fun loadUsers(): Call<List<User>>
 }

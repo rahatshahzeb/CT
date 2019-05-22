@@ -3,6 +3,7 @@ package com.android.task.ui.login
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.task.ui.login.repository.LoginRepository
 import com.android.task.util.SingleLiveEvent
 import com.android.task.vo.User
 import javax.inject.Inject

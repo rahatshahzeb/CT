@@ -1,4 +1,4 @@
-package com.android.task.ui.login
+package com.android.task.ui.login.repository
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData

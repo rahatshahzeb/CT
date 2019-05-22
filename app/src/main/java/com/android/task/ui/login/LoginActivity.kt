@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.android.task.R
 import com.android.task.databinding.ActivityLoginBinding
-import com.android.task.ui.main.MainActivity
+import com.android.task.ui.users.UserListActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -86,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navHome() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, UserListActivity::class.java))
         finish()
     }
 }

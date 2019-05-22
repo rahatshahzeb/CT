@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.android.task">
 
+    <uses-permission android:name = "android.permission.INTERNET" />
+
     <application
             android:name=".TaskApplication"
             android:allowBackup="false"
@@ -13,19 +15,28 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
+                android:name=".ui.users.UserListActivity"
+                android:label="@string/title_user_list"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".ui.users.UserDetailActivity"
+                android:label="@string/title_user_detail"
+                android:parentActivityName=".ui.users.UserListActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.android.task.ui.users.UserListActivity"/>
+        </activity>
+        <activity
                 android:name=".ui.login.LoginActivity"
                 android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode = "adjustResize">
+                android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-
-        <activity
-                android:name=".ui.main.MainActivity"
-                android:theme="@style/AppTheme">
         </activity>
     </application>
 

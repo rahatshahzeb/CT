@@ -1,7 +1,8 @@
 package com.android.task.di.module
 
 import com.android.task.ui.login.LoginActivity
-import com.android.task.ui.main.MainActivity
+import com.android.task.ui.users.UserDetailActivity
+import com.android.task.ui.users.UserListActivity
 import dagger.android.ContributesAndroidInjector
 import dagger.Module
 
@@ -9,12 +10,12 @@ import dagger.Module
 @Suppress("unused")
 abstract class ActivityBindingModule {
 
-//    @ContributesAndroidInjector(modules = [MainActivityFragmentModule::class])
-//    abstract fun contributeMainActivity(): MainActivity
-
     @ContributesAndroidInjector
     abstract fun contributeLoginActivity(): LoginActivity
 
     @ContributesAndroidInjector
-    abstract fun contributeMainActivity(): MainActivity
+    abstract fun contributeUserListActivity(): UserListActivity
+
+    @ContributesAndroidInjector(modules = [UserDetailActivityFragmentModule::class])
+    abstract fun contributeUserDetailActivity(): UserDetailActivity
 }
