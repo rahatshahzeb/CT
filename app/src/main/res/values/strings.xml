@@ -3,4 +3,8 @@
     <string name="title_user_list">Users</string>
     <string name="title_user_detail">User Detail</string>
     <string name="title_activity_maps">Map</string>
+    <string name="account">Account</string>
+    <string name="password">Password</string>
+    <string name="username_password_or_country_is_incorrect">Username, Password or Country is incorrect</string>
+    <string name="login">Login</string>
 </resources>

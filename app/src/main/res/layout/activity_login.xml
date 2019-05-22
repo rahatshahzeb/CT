@@ -55,7 +55,7 @@
                             android:layout_height="wrap_content"
                             tools:text="ACCOUNT"
                             android:text="@={viewModel.accountValue}"
-                            android:hint="Account"
+                            android:hint="@string/account"
                             android:backgroundTint="@color/grey_0"
                             android:inputType="textCapCharacters"
                             android:textColor="@color/grey_0"
@@ -80,7 +80,7 @@
                             android:inputType="textPassword"
                             tools:text="PASSWORD"
                             android:text="@={viewModel.passwordValue}"
-                            android:hint="Password"
+                            android:hint="@string/password"
                             android:backgroundTint="@color/grey_0"
                             android:textColor="@color/grey_0"
                             android:textColorHint="@color/colorAccent"/>
@@ -107,7 +107,7 @@
                         android:textAlignment="center"
                         app:visibleGone="@{safeUnbox(viewModel.isLoginError)}"
                         android:layout_below="@+id/countryPicker"
-                        android:text="Username, Password or Country is incorrect"
+                        android:text="@string/username_password_or_country_is_incorrect"
                         android:layout_marginTop="10dp"/>
 
             </RelativeLayout>
@@ -115,7 +115,7 @@
 
         <Button
                 android:id="@+id/btn_login"
-                android:text="Login"
+                android:text="@string/login"
                 android:background="@drawable/border_btn_login"
                 android:textColor="@color/colorAccent"
                 android:layout_width="match_parent"
