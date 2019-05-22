@@ -1,13 +1,19 @@
 package com.android.task.ui.users
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.android.task.R
 import com.android.task.di.Injectable
 import com.android.task.model.User
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_user_detail.*
 import kotlinx.android.synthetic.main.user_detail.view.*
 
@@ -17,7 +23,9 @@ import kotlinx.android.synthetic.main.user_detail.view.*
  * in two-pane mode (on tablets) or a [UserDetailActivity]
  * on handsets.
  */
-class UserDetailFragment : Fragment(), Injectable {
+class UserDetailFragment : Fragment(), Injectable, OnMapReadyCallback {
+
+    private lateinit var mMap: GoogleMap
 
     /**
      * The dummy content this fragment is presenting.
@@ -29,9 +37,6 @@ class UserDetailFragment : Fragment(), Injectable {
 
         arguments?.let {
             if (it.containsKey(ARG_ITEM)) {
-                // Load the dummy content specified by the fragment
-                // arguments. In a real-world scenario, use a Loader
-                // to load content from a content provider.
                 item = it.getParcelable(ARG_ITEM)
                 activity?.toolbar_layout?.title = item?.name
             }
@@ -44,10 +49,14 @@ class UserDetailFragment : Fragment(), Injectable {
     ): View? {
         val rootView = inflater.inflate(R.layout.user_detail, container, false)
 
-        // Show the dummy content as text in a TextView.
         item?.let {
             rootView.user_detail.text = it.email
         }
+
+        (this.childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)?.let {
+            it.getMapAsync(this)}
+
+
 
         return rootView
     }
@@ -58,5 +67,13 @@ class UserDetailFragment : Fragment(), Injectable {
          * represents.
          */
         const val ARG_ITEM = "item"
+    }
+
+    override fun onMapReady(p0: GoogleMap) {
+        mMap = p0
+
+        val location = LatLng(item?.address?.geo?.lat?.toDouble()!!, item?.address?.geo?.lng?.toDouble()!!)
+        mMap.addMarker(MarkerOptions().position(location).title((item as User).name))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
     }
 }

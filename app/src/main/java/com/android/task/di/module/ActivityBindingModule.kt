@@ -3,8 +3,8 @@ package com.android.task.di.module
 import com.android.task.ui.login.LoginActivity
 import com.android.task.ui.users.UserDetailActivity
 import com.android.task.ui.users.UserListActivity
-import dagger.android.ContributesAndroidInjector
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 
 @Module
 @Suppress("unused")

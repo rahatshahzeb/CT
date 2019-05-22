@@ -2,27 +2,26 @@ package com.android.task.ui.users
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.android.task.R
 import com.android.task.databinding.ActivityUserListBinding
 import com.android.task.model.User
-
 import dagger.android.AndroidInjection
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_user_list.*
-import kotlinx.android.synthetic.main.user_list_content.view.*
 import kotlinx.android.synthetic.main.user_list.*
+import kotlinx.android.synthetic.main.user_list_content.view.*
 import javax.inject.Inject
 
 /**
