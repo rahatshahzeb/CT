@@ -8,5 +8,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class MainActivityFragmentModule {
 
 //    @ContributesAndroidInjector
-//    abstract fun contributeSignUpFragment(): LeadsFragment
+//    abstract fun contributeFRAGMENTNAME(): FRAGMENTNAME
 }

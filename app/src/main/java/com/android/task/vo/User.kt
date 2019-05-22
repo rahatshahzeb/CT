@@ -2,9 +2,9 @@ package com.android.task.vo
 
 import androidx.room.Entity
 
-@Entity(primaryKeys = ["username"])
+@Entity(primaryKeys = ["account"])
 data class User(
-    val username: String,
+    val account: String,
     val password: String,
     val country: String
 )
